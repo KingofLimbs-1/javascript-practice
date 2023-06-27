@@ -1,0 +1,50 @@
+/* || GENERAL STYLING */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000;
+}
+
+#heading {
+  font-family: "Mr Robot";
+  font-weight: 300;
+}
+
+/* Font face definitions */
+@font-face {
+  font-family: Mr Robot;
+  src: local("MrRobot");
+}
+
+@font-face {
+  font-family: Inter;
+  src: local("Inter Regular");
+}
+/* ... */
+
+/* || GENERAL STYLING END */
+
+/* || CONTENT SECTION */
+
+/* Headings */
+h1 {
+  font-size: 60px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+h2 {
+  font-size: 40px;
+  color: #fff;
+  margin-top: 20px;
+}
+/* ... */
+
+/* || CONTENT SECTION END */
