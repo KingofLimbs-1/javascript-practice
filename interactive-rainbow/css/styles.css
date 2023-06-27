@@ -1,0 +1,14 @@
+.rainbow-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.color-div {
+  background-color: #fff;
+  height: 50px;
+  width: 50%;
+  border-style: solid;
+  border-width: 1px;
+}
