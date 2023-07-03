@@ -2,6 +2,7 @@
 
 const questions = [
   {
+    id: 1,
     question:
       "Elliot Alderson, the main character suffers from a mental health disorder. What is it?",
     image: "/images/elliot.jpg",
@@ -15,6 +16,7 @@ const questions = [
   },
 
   {
+    id: 2,
     question:
       "Darlene Alderson, Elliot's sister, is a skilled hacker. What is her hacker alias?",
     image: "/images/darlene.jpg",
@@ -28,6 +30,7 @@ const questions = [
   },
 
   {
+    id: 3,
     question:
       "Angela Moss, Elliot's childhood friend, works at the same corporation as Elliot. What is the name of that corporation?",
     image: "/images/angela.jpg",
@@ -36,6 +39,7 @@ const questions = [
   },
 
   {
+    id: 4,
     question:
       "Elliot's protector identity takes the form of his deceased father. What is his father's name?",
     image: "/images/protector.jpg",
@@ -49,6 +53,7 @@ const questions = [
   },
 
   {
+    id: 5,
     question:
       "Tyrell Wellick, a high-ranking executive at E Corp, becomes involved with F Society. What is Tyrell's ultimate goal?",
     image: "/images/tyrell.jpg",
@@ -62,6 +67,7 @@ const questions = [
   },
 
   {
+    id: 6,
     question:
       "Whiterose is a mysterious character who leads the Dark Army. What is Whiterose's true identity?",
     image: "/images/whiterose.jpg",
@@ -75,6 +81,7 @@ const questions = [
   },
 
   {
+    id: 7,
     question:
       "Dominique 'Dom' DiPierro is an FBI agent investigating the cyber attacks orchestrated by F Society. Which season does Dom first appear in?",
     image: "/images/dominique.jpg",
@@ -89,26 +96,52 @@ const questions = [
 // VARIABLE REFERENCES
 const quizContainer = document.querySelector(".quiz-container");
 const questionContainer = document.querySelector(".question-container");
-const nextQuestionBtn = document.querySelector(".next-question-btn");
 // VARIABLE REFERENCES END
 
 // FUNCTIONALITY
 
-function createQuestionCard(data) {
-  data.forEach((question) => {
-    const questionBody = document.createElement("div");
-    questionBody.innerHTML = `
-     <div class="question">${question.question}</div>
-     <div class="image">${question.image}</div>
-     `;
-     return questionBody;
-    // questionContainer.appendChild(questionBody);
-  });
-}
+// Generate question buttons
+const nextQuestionBtn = () => {
+  let button = document.createElement("button");
+  return button;
+};
+// ...
 
-// let staticContent = createQuestionCard(questions);
+// Generate question card static elements
+const generateMarkup = () => {
+  for (let question in questions) {
+    if (questions.hasOwnProperty(question)) {
+      let property = questions[question];
 
-// questionContainer.appendChild(staticContent);
+      // Markup generation
+      let markupContainer = document.createElement("div");
+      markupContainer.className = "question";
 
-// console.log(staticContent);
+      const questionNumber = document.createElement("h3");
+      questionNumber.textContent = "Question" + " " + property.id;
+
+      const questionText = document.createElement("p");
+      questionText.textContent = property.question;
+
+      const questionImage = document.createElement("img");
+      questionImage.src = property.image;
+
+      const nextButton = nextQuestionBtn();
+      nextButton.textContent = "Next Question";
+      // Markup generation end
+
+      markupContainer.append(
+        questionNumber,
+        questionText,
+        questionImage,
+        nextButton
+      );
+      questionContainer.appendChild(markupContainer);
+    }
+  }
+};
+// ...
+
+generateMarkup(questions);
+
 // FUNCTIONALITY END
